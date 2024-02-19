@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+
+{% block body %}
+<form style="border: 5px solid beige; padding: 20px; border-radius: 10px;" method="post">
+    {% csrf_token %}
+    <div class="container">
+        <h1 style="text-align: center; color: #491e03;">Update student</h1>
+        <hr>
+
+        <label for="f_name" style="color: #491e03;"><b>First name</b></label>
+        <input type="text" placeholder="Enter First name" name="fname" value="{{ students.f_name }}" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 2px solid #491e03; border-radius: 5px;" required>
+
+        <label for="l_name" style="color: #491e03;"><b>Last name</b></label>
+        <input type="text" placeholder="Enter Last name" name="lname" value="{{ students.l_name }}" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 2px solid #491e03; border-radius: 5px;" required>
+        
+        <label for="age" style="color: #491e03;"><b>Age</b></label>
+        <input type="text" placeholder="Enter Age" name="age" value="{{ students.age }}" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 2px solid #491e03; border-radius: 5px;" required>
+       
+        <div class="clearfix">
+            <button type="submit" class="signupbtn" style="background-color: #491e03; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Update</button>
+        </div>
+    </div>
+</form>
+
+{% endblock body %}

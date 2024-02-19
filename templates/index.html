@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block style %}
+    <link rel="stylesheet" href="{%static 'css/index.css'%}">
+    {% endblock style %} 
+    <title>Home</title>   
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'create' %}">Add student</a></li>
+            <li><a href="{% url 'signup' %}">Get started</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+        </ul>
+    </nav>
+    {% block title %}
+    
+  {% endblock title %}
+    
+
+  {% block body %}
+    
+  {% endblock body %}
+</body>
+</html>
