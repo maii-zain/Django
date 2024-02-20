@@ -100,8 +100,9 @@ def MyLog(request):
             not_exist_msg = "Email is not registered."
             return render(request, 's1/login.html', {'error_message': not_exist_msg})
 def My_logout(request):
+    request.session.clear()
     logout(request)
-    return redirect(MyLog)                
+    return redirect(MyLog)                          
     #         users=User.objects.all()
     #         print(users[0].password)
             
