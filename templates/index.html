@@ -7,7 +7,7 @@
     {% endblock style %} 
     <title>Home</title>   
     <style>
-        /* Add CSS rules for the navbar */
+     
         nav {
             background-color: #333;
             padding: 10px 0;
@@ -34,10 +34,12 @@
             border-radius: 5px;
         }
         
-        /* Add CSS rules for dropdown */
+        
         .dropdown {
             position: relative;
             display: inline-block;
+            margin-left: auto;
+            right: 0; 
         }
         
         .dropdown-content {
@@ -47,6 +49,8 @@
             min-width: 160px;
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
             z-index: 1;
+            margin-left: auto; 
+            right: 0; 
         }
         
         .dropdown-content a {
@@ -64,20 +68,20 @@
             display: block;
         }
         
-        /* Add CSS rules for the dropdown arrow */
+      
         .dropdown .dropbtn::after {
-            content: "\25BE"; /* Unicode character for down arrow */
+            content: "\25BE"; 
             margin-left: 5px;
         }
         
-        /* Add CSS rules for the page title */
+        
         h1 {
             color: #333;
             text-align: center;
             margin-top: 50px;
         }
         
-        /* Add CSS rules for the main content */
+        
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -85,7 +89,7 @@
             background-color: #f4f4f4;
         }
         
-        /* Add CSS rules for links */
+      
         a {
             color: #007bff;
             text-decoration: none;
@@ -118,8 +122,9 @@
             <li class="dropdown">
                 <a href="#" class="dropbtn">More</a>
                 <div class="dropdown-content">
-                    <a href="{% url 'signup' %}">Get started</a>
-                    <a href="{% url 'login' %}">Login</a>
+                    {% comment %} <a href="{% url 'signup' %}">Get started</a>
+                    <a href="{% url 'login' %}">Login</a> {% endcomment %}
+                    <a  href="{% url 'logout' %}">Log Out</a>
                 </div>
             </li>
         </ul>
