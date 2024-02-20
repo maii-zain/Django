@@ -1,4 +1,5 @@
 {% extends "index.html" %}
+{% load static %}
 
 {% block body %}
 <style>
@@ -10,17 +11,24 @@
     th, td {
         padding: 12px;
         text-align: left;
-        border-bottom: 2px solid #020000;
-        border-right: 1px solid #020000;
+        border-bottom: 5px solid white;
+        border-right: 2px solid white;
+        text-align:center;
+    }
+    td{
+        font-family:Lucida Console;
+        font-weight: bold;
     }
     
     th {
-        background-color: #333;
+        background-color: #011740;
         color: white;
+        text-align:center;
     }
     
     tr:nth-child(even) {
         background-color: white;
+        text-align:center;
     }
     tr:nth-child(odd) {
         background-color: #ddd;
@@ -31,14 +39,35 @@
     
     tr:last-child td {
         border-bottom: none;
+        
+        
     }
 
     td:last-child {
         border-right: none;
+        
+    }
+    img{
+        width:100%;
+        height:500px;
+    }
+    .stds {
+        color: #69101a;
+        border: 2px solid #69101a;
+        padding: 10px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 18px 6px #576b91;
     }
 </style>
 
-<br/><br/><br/><br/><br/>
+<br/><br/><br/>
+<img src="{% static '/images/Open_Graph_Image.jpg' %}" alt="Welcome Logo">
+{% comment %} <img src="static/images/Open_Graph_Image.jpg"/> {% endcomment %}
+<br/><br/><br/><br/>
+<h1 class="stds">Our magical students</h1>
+<br/><br/><br/><br/>
+
 <table>
   <tr>
     <th>ID</th>
@@ -55,7 +84,7 @@
     <td>{{ student.l_name }}</td>
     <td>{{ student.age }}</td>
     <td><a href="{% url "Del_Std" student.id %}" <button style="padding: 10px 20px;
-        background-color: red;
+        background-color: #69101a;
         border: none;
         border-radius: 5px;
         color: white;
@@ -66,7 +95,7 @@
          
     </a></td>
     <td><a href="{% url "Update" student.id %}" <button style="padding: 10px 20px;
-        background-color: Blue;
+        background-color: #011740;
         border: none;
         border-radius: 5px;
         color: white;
@@ -79,4 +108,6 @@
   </tr>
   {% endfor %}
 </table>
+<br/><br/><br/><br/><br/><br/>
 {% endblock body %}
+

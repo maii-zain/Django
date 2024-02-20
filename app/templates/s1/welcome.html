@@ -1,0 +1,73 @@
+{% comment %} {% extends "index.html" %} {% endcomment %}
+{% load static %}
+
+{% block body %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .welcome-container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
+        padding: 40px;
+        width: 800px;
+        text-align: center;
+    }
+
+    .welcome-container h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        background: -webkit-linear-gradient(left, #88101d, #4d33ac);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        border-bottom: 2px solid #88101d;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .welcome-container p {
+        color: #491e03;
+        margin-bottom: 30px;
+        line-height: 1.6;
+        font-size: 16px;
+        font-style: italic;
+    }
+
+    .welcome-container img {
+        width: 100px;
+        height: auto;
+        margin-bottom: 30px;
+    }
+
+    .welcome-container button {
+        padding: 12px 24px;
+        background-color: #88101d;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 16px;
+    }
+
+    .welcome-container button:hover {
+        background-color: #5e2703;
+    }
+</style>
+
+<div class="welcome-container">
+    <img src="{% static '/images/512To4UTIQL._AC_UF894,1000_QL80_.jpg' %}" alt="Welcome Logo">
+    <h2>Welcome Back to Hogwarts, Esteemed Students!</h2>
+    <p>As the enchanted halls of Hogwarts Castle open once more, it is with great joy and anticipation that we welcome back our esteemed students for another year of magical adventures, profound learning, and unforgettable friendships.</p>
+    
+    <button onclick="location.href='/login'">Login</button>
+</div>
+{% endblock %}

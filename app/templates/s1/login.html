@@ -1,75 +1,117 @@
-{% extends "index.html" %}
+{% comment %} {% extends "index.html" %} {% endcomment %}
+{% load static %}
 
 {% block body %}
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 
-.login-container {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 300px;
-}
+    form {
+        border: 5px solid #011740;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 90%; /* Adjusted max-width */
+        margin: 0 auto;
+        margin-top: 5%;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-.login-container h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px; 
-}
+    .container {
+        margin-left: 2%;
+        border: 2px solid #011740;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 7px 4px #576b91;
+    }
 
-.login-container form {
-    display: flex;
-    flex-direction: column;
-}
+    label {
+        color: #88101d;
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
 
-.login-container label {
-    margin-bottom: 10px; 
-    color: #333;
-}
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 90%;
+        padding: 12px 15px;
+        margin-bottom: 10px;
+        border: 2px solid #491e03;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
 
-.login-container input {
-    padding: 10px;
-    margin-bottom: 15px; 
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
+    .clearfix {
+        text-align: center;
+        margin-top: 20px;
+    }
 
-.login-container button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+    .signupbtn {
+        background-color: #88101d;
+        color: white;
+        padding: 12px 24px;
+        border: 2px solid #491e03;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
 
-.login-container button:hover {
-    background-color: #0056b3;
-}
+    .signupbtn:hover {
+        background-color: #5e2703;
+    }
+
+  
+    .no-account {
+        color: #4d33ac;
+        text-decoration: none; 
+        font-size: 18px; 
+        margin-top: 10px;
+        margin-left: 200px; 
+        display: block; 
+    }
+
+    /* Added style for error messages */
+    .error-message {
+        color: red;
+        margin-top: 5px;
+    }
 </style>
-<div class="login-container">
-    <h2>Login</h2>
-    <form method="post"> 
-        {% csrf_token %}
+
+<form method="post" style="width:50%">
+    {% csrf_token %}
+    <h1 style="text-align: center; color: #88101d; margin-bottom: 20px; border: 1px solid; box-shadow: 10px 10px 10px #576b91; display: flex; align-items: center; justify-content: center; background-color: #fff; padding: 10px; border-radius: 10px;">
+        <img src="{% static '/images/magic-stick-logo-vector.jpg' %}" class="m_img" alt="Logo" style="width: 50px; height: auto; margin-left: 10px;">
+        Login
+    </h1>
+    <div class="container">
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
+        <input type="email" id="email" name="email" required>
+        {% if form.email.errors %}
+            <p class="error-message">{{ form.email.errors }}</p>
+        {% endif %}
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-        <button type="submit">Login</button>
-    </form>
-    {% if error_message %}
-    <p style="color: red;">{{ error_message }}</p>
-    {% endif %}
-</div>
-{% endblock %}
+        <input type="password" id="password" name="password" required>
+        {% if form.password.errors %}
+            <p class="error-message">{{ form.password.errors }}</p>
+        {% endif %}
+        <div class="clearfix">
+            <button type="submit" class="signupbtn">Login</button>
+        </div>
+        
+        <a href="/signup" class="no-account">Don't have an account?Iam a new magician</a>
+    </div>
+</form>
+{% endblock body %}

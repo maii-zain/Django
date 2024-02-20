@@ -1,33 +1,59 @@
 nav {
-    background-color: #333;
+    background-color: rgba(139, 0, 0, 0.5); 
     padding: 10px 0;
+    height: 50px;
     position: fixed; 
     width: 100%; 
     top: 0; 
-    left: 0;
-    z-index: 1000;
+    z-index: 1000; 
+   
 }
 
-ul {
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    text-align: center;
 }
 
-li {
+nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin-top: 10px;
 }
 
-li:last-child {
-    margin-right: 0;
-}
-
-a {
-    color: rgb(255, 255, 255);
+nav ul li a {
+    color: white;
     text-decoration: none;
-    font-size: 18px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 120%;
+    
+    
+}
+
+nav ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Add CSS rules for the page title */
+h1 {
+    color: #333;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Add CSS rules for the main content */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Add CSS rules for links */
+a {
+    color: #007bff;
+    text-decoration: none;
 }
 
 a:hover {

@@ -65,23 +65,26 @@ def login(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         
+        if not email or not password: 
+            error_message = "Please fill in all fields."
+            return render(request, 's1/login.html', {'error_message': error_message})
+        
         user = Person.objects.filter(email=email, password=password).first()
         if user:
-           
             return redirect('home')
         else:
-          
             error_message = "Invalid email or password. Please try again."
             return render(request, 's1/login.html', {'error_message': error_message})
     else:
         return render(request, 's1/login.html')
-
     
 def contact(request):
     return render(request, 's1/contact.html')
 
 def about(request):
     return render(request, 's1/about.html')
+def welcome(request):
+    return render(request, 's1/welcome.html')
 # def Show_student(request):
 #     students=Student.objects.all
 #     context={}

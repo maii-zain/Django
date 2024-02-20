@@ -1,25 +1,38 @@
 {% extends "index.html" %}
-
+{% load static %}
 {% block body %}
-<form style="border: 5px solid beige; padding: 20px; border-radius: 10px;" method="post">
+
+<form style="border: 5px solid #031a47; padding: 20px; border-radius: 10px; max-width: 600px; margin: 0 auto; margin-top: 5%; background-color: #f9f9f9; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" method="post">
     {% csrf_token %}
     <div class="container">
-        <h1 style="text-align: center; color: #491e03;">Update student</h1>
-        <hr>
-
-        <label for="f_name" style="color: #491e03;"><b>First name</b></label>
-        <input type="text" placeholder="Enter First name" name="fname" value="{{ students.f_name }}" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 2px solid #491e03; border-radius: 5px;" required>
-
-        <label for="l_name" style="color: #491e03;"><b>Last name</b></label>
-        <input type="text" placeholder="Enter Last name" name="lname" value="{{ students.l_name }}" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 2px solid #491e03; border-radius: 5px;" required>
+        <h1 style="text-align: center; color: #88101d; margin-bottom: 20px; border: 1px solid; box-shadow: 10px 10px 10px #576b91; display: flex; align-items: center; justify-content: center; background-color: #fff; padding: 10px; border-radius: 10px;">
+            Update student
+            <img src="{% static '/images/magic-stick-logo-vector.jpg' %}" class="m_img" alt="Logo" style="width: 50px; height: auto; margin-left: 10px;">
+        </h1>
         
-        <label for="age" style="color: #491e03;"><b>Age</b></label>
-        <input type="text" placeholder="Enter Age" name="age" value="{{ students.age }}" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 2px solid #491e03; border-radius: 5px;" required>
-       
-        <div class="clearfix">
-            <button type="submit" class="signupbtn" style="background-color: #491e03; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Update</button>
+        <div style="margin-left: 2%; border: 2px solid #011740; padding: 20px; border-radius: 10px; box-shadow: 0 7px 4px #576b91;">
+            <div style="margin-bottom: 20px;">
+                <label for="f_name" style="color: #88101d; display: block; font-weight: bold; margin-bottom: 5px;">First name:</label>
+                <input type="text" placeholder="Enter First name" name="fname" value="{{ students.f_name }}" style="width: 90%; padding: 12px 15px; margin-bottom: 10px; border: 2px solid #491e03; border-radius: 5px; box-sizing: border-box;" required>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label for="l_name" style="color: #88101d; display: block; font-weight: bold; margin-bottom: 5px;">Last name:</label>
+                <input type="text" placeholder="Enter Last name" name="lname" value="{{ students.l_name }}" style="width: 90%; padding: 12px 15px; margin-bottom: 10px; border: 2px solid #491e03; border-radius: 5px; box-sizing: border-box;" required>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label for="age" style="color: #88101d; display: block; font-weight: bold; margin-bottom: 5px;">Age:</label>
+                <input type="text" placeholder="Enter Age" name="age" value="{{ students.age }}" style="width: 90%; padding: 12px 15px; margin-bottom: 10px; border: 2px solid #491e03; border-radius: 5px; box-sizing: border-box;" required>
+            </div>
+        </div>
+
+        <div class="clearfix" style="text-align: center; margin-top: 20px;">
+            <button type="submit" class="signupbtn" style="background-color: #88101d; color: white; padding: 12px 24px; border: 2px solid #491e03; border-radius: 5px; cursor: pointer; transition: all 0.3s ease; font-family: Arial, sans-serif; font-weight: bold; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);">
+                Update
+            </button>
         </div>
     </div>
-</form>
+</form> 
 
 {% endblock body %}
